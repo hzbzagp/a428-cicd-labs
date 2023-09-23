@@ -21,9 +21,8 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                input message: 'Lanjutkan Ke tahap Deploy? (Klik "Proceed" untuk lanjut)'
                 sh './jenkins/scripts/deliver.sh'
-                sleep(time:1,unit:"MINUTES")
+                input message: 'Finished using the website? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
         }
